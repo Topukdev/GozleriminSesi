@@ -346,21 +346,21 @@ body{background:var(--bg);color:var(--text);font-family:'Nunito',sans-serif;heig
 <!-- STARTUP -->
 <div id="startup">
   <div class="s-eye">👁️</div>
-  <div class="s-title">GÖZLERİMİN<br>SESİ</div>
-  <div class="s-sub">Göz Hareketleriyle İletişim · Eye Movement Communication</div>
+  <div class="s-title"><span id="title-main">GÖZLERİMİN<br>SESİ</span></div>
+  <div class="s-sub" id="subtitle-main">Göz Hareketleriyle İletişim · Eye Movement Communication</div>
   <div class="s-bar"><div class="s-fill" id="s-fill"></div></div>
   <div id="s-status">MediaPipe yükleniyor…</div>
-  <button id="s-startbtn" onclick="startApp()">BAŞLAT / START ›</button>
+  <button id="s-startbtn" onclick="startApp()"><span id="btn-start">BAŞLAT / START</span> ›</button>
 </div>
 
 <!-- CALIBRATION OVERLAY -->
 <div id="cal-overlay">
-  <div class="cal-title">🎯 KALİBRASYON</div>
-  <div class="cal-info">Ekranda beliren noktaya bakın ve <strong style="color:var(--primary)">bir kez göz kırpın</strong>.<br>Look at each point and blink once to select.</div>
+  <div class="cal-title">🎯 <span id="cal-title-text">KALİBRASYON</span></div>
+  <div class="cal-info" id="cal-info-text">Ekranda beliren noktaya bakın ve <strong style="color:var(--primary)">bir kez göz kırpın</strong>.<br>Look at each point and blink once to select.</div>
   <div class="cal-progress" id="cal-prog">0 / 5</div>
   <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;">
-    <button class="cal-btn primary" onclick="beginCalibration()">Kalibrasyonu Başlat</button>
-    <button class="cal-btn ghost" onclick="skipCalibration()">Atla (Varsayılan)</button>
+    <button class="cal-btn primary" onclick="beginCalibration()"><span id="btn-cal-start">Kalibrasyonu Başlat</span></button>
+    <button class="cal-btn ghost" onclick="skipCalibration()"><span id="btn-cal-skip">Atla (Varsayılan)</span></button>
   </div>
 </div>
 <div id="cal-dot"></div>
@@ -377,7 +377,7 @@ body{background:var(--bg);color:var(--text);font-family:'Nunito',sans-serif;heig
   <!-- HEADER -->
   <header id="header">
     <div>
-      <span class="h-brand">👁️ GÖZLERİMİN SESİ</span>
+      <span class="h-brand">👁️ <span id="header-title">GÖZLERİMİN SESİ</span></span>
       <span class="h-ver">v1.0</span>
     </div>
     <div class="h-gap"></div>
@@ -385,7 +385,7 @@ body{background:var(--bg);color:var(--text);font-family:'Nunito',sans-serif;heig
     <div class="h-badge"><div class="h-dot" id="trk-dot"></div><span id="trk-lbl">Takip Yok</span></div>
     <button class="h-btn on" id="btn-tr" onclick="setLang('tr')">TR 🇹🇷</button>
     <button class="h-btn" id="btn-en" onclick="setLang('en')">EN 🇬🇧</button>
-    <button class="h-btn calb" onclick="showCalOverlay()">🎯 Kalibrasyon</button>
+    <button class="h-btn calb" id="btn-cal-header" onclick="showCalOverlay()">🎯 <span id="header-cal">Kalibrasyon</span></button>
   </header>
 
   <!-- SIDEBAR -->
@@ -394,7 +394,7 @@ body{background:var(--bg);color:var(--text);font-family:'Nunito',sans-serif;heig
       <video id="video" autoplay playsinline muted></video>
       <canvas id="cam-canvas"></canvas>
       <div id="blink-dot"></div>
-      <div id="no-face"><span>🚫</span><span>Yüz bulunamadı</span></div>
+      <div id="no-face"><span>🚫</span><span id="no-face-text">Yüz bulunamadı</span></div>
       <div id="cam-overlay">
         <span id="emo-icon">😐</span>
         <span id="emo-label" style="color:var(--text-dim)">NÖTR</span>
@@ -403,36 +403,36 @@ body{background:var(--bg);color:var(--text);font-family:'Nunito',sans-serif;heig
     </div>
 
     <div id="stat-bar">
-      <div class="stat"><div class="stat-v" id="s-blinks">0</div><div class="stat-l">Kırpma</div></div>
-      <div class="stat"><div class="stat-v" id="s-words">0</div><div class="stat-l">Kelime</div></div>
-      <div class="stat"><div class="stat-v" id="s-phrases">0</div><div class="stat-l">Cümle</div></div>
+      <div class="stat"><div class="stat-v" id="s-blinks">0</div><div class="stat-l" id="stat-blinks-label">Kırpma</div></div>
+      <div class="stat"><div class="stat-v" id="s-words">0</div><div class="stat-l" id="stat-words-label">Kelime</div></div>
+      <div class="stat"><div class="stat-v" id="s-phrases">0</div><div class="stat-l" id="stat-phrases-label">Cümle</div></div>
     </div>
 
     <div id="sett">
-      <div class="sett-sep">👁️ Göz Takibi</div>
+      <div class="sett-sep">👁️ <span id="sett-gaze-title">Göz Takibi</span></div>
       <div class="sett-g">
-        <label>Göz Kırpma Eşiği <span class="sett-v" id="sv-blink">0.22</span></label>
+        <label><span id="sett-blink-label">Göz Kırpma Eşiği</span> <span class="sett-v" id="sv-blink">0.22</span></label>
         <div class="sett-row"><input type="range" id="sl-blink" min="0.10" max="0.35" step="0.01" value="0.22" oninput="updSett()"></div>
       </div>
       <div class="sett-g">
-        <label>Gaze Hassasiyeti <span class="sett-v" id="sv-gain">3.5</span></label>
+        <label><span id="sett-gain-label">Gaze Hassasiyeti</span> <span class="sett-v" id="sv-gain">3.5</span></label>
         <div class="sett-row"><input type="range" id="sl-gain" min="1.5" max="7.0" step="0.1" value="3.5" oninput="updSett()"></div>
       </div>
       <div class="sett-g">
-        <label>Yumuşatma <span class="sett-v" id="sv-smooth">0.12</span></label>
+        <label><span id="sett-smooth-label">Yumuşatma</span> <span class="sett-v" id="sv-smooth">0.12</span></label>
         <div class="sett-row"><input type="range" id="sl-smooth" min="0.04" max="0.35" step="0.01" value="0.12" oninput="updSett()"></div>
       </div>
-      <div class="sett-sep">🔊 Ses</div>
+      <div class="sett-sep">🔊 <span id="sett-voice-title">Ses</span></div>
       <div class="sett-g">
-        <label>TTS Hızı <span class="sett-v" id="sv-rate">1.0</span></label>
+        <label><span id="sett-rate-label">TTS Hızı</span> <span class="sett-v" id="sv-rate">1.0</span></label>
         <div class="sett-row"><input type="range" id="sl-rate" min="0.5" max="2.0" step="0.1" value="1.0" oninput="updSett()"></div>
       </div>
       <div class="sett-g">
-        <label>TTS Tonu <span class="sett-v" id="sv-pitch">1.0</span></label>
+        <label><span id="sett-pitch-label">TTS Tonu</span> <span class="sett-v" id="sv-pitch">1.0</span></label>
         <div class="sett-row"><input type="range" id="sl-pitch" min="0.5" max="2.0" step="0.1" value="1.0" oninput="updSett()"></div>
       </div>
     </div>
-    <button id="cal-sidebar-btn" onclick="showCalOverlay()">🎯 KALİBRASYON / CALIBRATE</button>
+    <button id="cal-sidebar-btn" onclick="showCalOverlay()">🎯 <span id="sidebar-cal-text">KALİBRASYON / CALIBRATE</span></button>
   </aside>
 
   <!-- MAIN -->
@@ -440,16 +440,16 @@ body{background:var(--bg);color:var(--text);font-family:'Nunito',sans-serif;heig
     <div id="output">
       <div id="text-disp"><span id="typed"></span><span class="cur"></span></div>
       <div id="out-acts">
-        <button class="act-btn speak-btn" onclick="speakText()">🔊 Seslendir</button>
-        <button class="act-btn" id="btn-bs" onclick="doBackspace()">⌫ Sil</button>
-        <button class="act-btn" id="btn-clr" onclick="doClear()">🗑 Temizle</button>
-        <button class="act-btn" id="btn-sp" onclick="doSpace()">⎵ Boşluk</button>
+        <button class="act-btn speak-btn" onclick="speakText()" id="btn-speak">🔊 <span id="btn-speak-text">Seslendir</span></button>
+        <button class="act-btn" id="btn-bs" onclick="doBackspace()">⌫ <span id="btn-bs-text">Sil</span></button>
+        <button class="act-btn" id="btn-clr" onclick="doClear()">🗑 <span id="btn-clr-text">Temizle</span></button>
+        <button class="act-btn" id="btn-sp" onclick="doSpace()">⎵ <span id="btn-sp-text">Boşluk</span></button>
       </div>
     </div>
 
     <div id="tabs">
-      <button class="tab-btn on" id="tab-kb" onclick="switchTab('kb')">⌨️ Klavye</button>
-      <button class="tab-btn" id="tab-cd" onclick="switchTab('cd')">🗂️ Kartlar</button>
+      <button class="tab-btn on" id="tab-kb" onclick="switchTab('kb')">⌨️ <span id="tab-kb-text">Klavye</span></button>
+      <button class="tab-btn" id="tab-cd" onclick="switchTab('cd')">🗂️ <span id="tab-cd-text">Kartlar</span></button>
     </div>
 
     <div id="tab-content">
@@ -472,6 +472,84 @@ body{background:var(--bg);color:var(--text);font-family:'Nunito',sans-serif;heig
 <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils@0.3.1640029074/camera_utils.js" crossorigin="anonymous"></script>
 
 <script>
+// ════════════════════════════════════════════
+// LANGUAGE TRANSLATIONS
+// ════════════════════════════════════════════
+const STRINGS = {
+  tr: {
+    title: 'GÖZLERİMİN<br>SESİ',
+    subtitle: 'Göz Hareketleriyle İletişim · Eye Movement Communication',
+    startBtn: 'BAŞLAT / START',
+    calTitle: 'KALİBRASYON',
+    calInfo: 'Ekranda beliren noktaya bakın ve <strong style="color:var(--primary)">bir kez göz kırpın</strong>.<br>Look at each point and blink once to select.',
+    calStart: 'Kalibrasyonu Başlat',
+    calSkip: 'Atla (Varsayılan)',
+    headerTitle: 'GÖZLERİMİN SESİ',
+    camNo: 'Kamera Yok',
+    camOn: 'Kamera Açık',
+    trackNo: 'Takip Yok',
+    trackOn: 'Takip ✓',
+    calibration: 'Kalibrasyon',
+    noFace: 'Yüz bulunamadı',
+    blinkLabel: 'Kırpma',
+    wordLabel: 'Kelime',
+    phraseLabel: 'Cümle',
+    gazeTitle: 'Göz Takibi',
+    blinkLabel: 'Göz Kırpma Eşiği',
+    gainLabel: 'Gaze Hassasiyeti',
+    smoothLabel: 'Yumuşatma',
+    voiceTitle: 'Ses',
+    rateLabel: 'TTS Hızı',
+    pitchLabel: 'TTS Tonu',
+    sidebarCal: 'KALİBRASYON / CALIBRATE',
+    speak: 'Seslendir',
+    delete: 'Sil',
+    clear: 'Temizle',
+    space: 'Boşluk',
+    keyboard: 'Klavye',
+    cards: 'Kartlar',
+    calibrating: 'Noktaya bakın → göz kırpın',
+    calibrationDone: 'Kalibrasyon tamam!',
+    usingDefaults: 'Varsayılan kalibrasyon kullanılıyor',
+  },
+  en: {
+    title: 'VOICE OF<br>MY EYES',
+    subtitle: 'Eye Movement Communication · Göz Hareketleriyle İletişim',
+    startBtn: 'START / BAŞLAT',
+    calTitle: 'CALIBRATION',
+    calInfo: 'Look at each point and <strong style="color:var(--primary)">blink once to select</strong>.<br>Ekranda beliren noktaya bakın ve bir kez göz kırpın.',
+    calStart: 'Start Calibration',
+    calSkip: 'Skip (Default)',
+    headerTitle: 'VOICE OF MY EYES',
+    camNo: 'No Camera',
+    camOn: 'Camera On',
+    trackNo: 'No Tracking',
+    trackOn: 'Tracking ✓',
+    calibration: 'Calibration',
+    noFace: 'No face detected',
+    blinkLabel: 'Blinks',
+    wordLabel: 'Words',
+    phraseLabel: 'Phrases',
+    gazeTitle: 'Eye Tracking',
+    blinkLabel: 'Blink Threshold',
+    gainLabel: 'Gaze Sensitivity',
+    smoothLabel: 'Smoothing',
+    voiceTitle: 'Voice',
+    rateLabel: 'TTS Rate',
+    pitchLabel: 'TTS Pitch',
+    sidebarCal: 'CALIBRATE / KALİBRASYON',
+    speak: 'Speak',
+    delete: 'Delete',
+    clear: 'Clear',
+    space: 'Space',
+    keyboard: 'Keyboard',
+    cards: 'Cards',
+    calibrating: 'Look at point → blink once',
+    calibrationDone: 'Calibration done!',
+    usingDefaults: 'Using default calibration',
+  }
+};
+
 // ════════════════════════════════════════════
 // STATE
 // ════════════════════════════════════════════
@@ -590,6 +668,56 @@ const M_LEFT=61, M_RIGHT=291, M_TOP=13, M_BTM=14;
 const L_BROW_IN=55, R_BROW_IN=285, L_BROW_OUT=46, R_BROW_OUT=276;
 
 // ════════════════════════════════════════════
+// TRANSLATION FUNCTION
+// ════════════════════════════════════════════
+function T(key) {
+  return STRINGS[S.lang]?.[key] || STRINGS['tr'][key] || key;
+}
+
+function updateAllText() {
+  // Startup Screen
+  document.getElementById('title-main').innerHTML = T('title');
+  document.getElementById('subtitle-main').innerHTML = T('subtitle');
+  document.getElementById('btn-start').textContent = T('startBtn');
+
+  // Calibration Modal
+  document.getElementById('cal-title-text').textContent = T('calTitle');
+  document.getElementById('cal-info-text').innerHTML = T('calInfo');
+  document.getElementById('btn-cal-start').textContent = T('calStart');
+  document.getElementById('btn-cal-skip').textContent = T('calSkip');
+
+  // Header
+  document.getElementById('header-title').textContent = T('headerTitle');
+  document.getElementById('cam-lbl').textContent = S.isCamOn ? T('camOn') : T('camNo');
+  document.getElementById('trk-lbl').textContent = S.isTracking ? T('trackOn') : T('trackNo');
+  document.getElementById('header-cal').textContent = T('calibration');
+
+  // Sidebar
+  document.getElementById('no-face-text').textContent = T('noFace');
+  document.getElementById('stat-blinks-label').textContent = T('blinkLabel');
+  document.getElementById('stat-words-label').textContent = T('wordLabel');
+  document.getElementById('stat-phrases-label').textContent = T('phraseLabel');
+  document.getElementById('sett-gaze-title').textContent = T('gazeTitle');
+  document.getElementById('sett-blink-label').innerHTML = `<span>${T('blinkLabel')}</span> <span class="sett-v" id="sv-blink">${S.blinkThresh.toFixed(2)}</span>`;
+  document.getElementById('sett-gain-label').innerHTML = `<span>${T('gainLabel')}</span> <span class="sett-v" id="sv-gain">${S.gazeGain.toFixed(1)}</span>`;
+  document.getElementById('sett-smooth-label').innerHTML = `<span>${T('smoothLabel')}</span> <span class="sett-v" id="sv-smooth">${S.smoothFactor.toFixed(2)}</span>`;
+  document.getElementById('sett-voice-title').textContent = T('voiceTitle');
+  document.getElementById('sett-rate-label').innerHTML = `<span>${T('rateLabel')}</span> <span class="sett-v" id="sv-rate">${S.ttsRate.toFixed(1)}</span>`;
+  document.getElementById('sett-pitch-label').innerHTML = `<span>${T('pitchLabel')}</span> <span class="sett-v" id="sv-pitch">${S.ttsPitch.toFixed(1)}</span>`;
+  document.getElementById('sidebar-cal-text').textContent = T('sidebarCal');
+
+  // Action Buttons
+  document.getElementById('btn-speak-text').textContent = T('speak');
+  document.getElementById('btn-bs-text').textContent = T('delete');
+  document.getElementById('btn-clr-text').textContent = T('clear');
+  document.getElementById('btn-sp-text').textContent = T('space');
+
+  // Tabs
+  document.getElementById('tab-kb-text').textContent = T('keyboard');
+  document.getElementById('tab-cd-text').textContent = T('cards');
+}
+
+// ════════════════════════════════════════════
 // BOOT / MEDIAPIPE
 // ════════════════════════════════════════════
 let faceMesh, mpCam;
@@ -638,9 +766,9 @@ async function initCam(){
     mpCam.start();
     S.isCamOn = true;
     document.getElementById('cam-dot').classList.add('on');
-    document.getElementById('cam-lbl').textContent = 'Kamera Açık';
+    document.getElementById('cam-lbl').textContent = T('camOn');
   } catch(e){
-    toast('⚠️ Kamera izni gerekli!');
+    toast('⚠️ ' + (S.lang==='tr'?'Kamera izni gerekli!':'Camera permission required!'));
   }
 }
 
@@ -664,11 +792,20 @@ function emotion(lm){
   const browSlope = ((lm[L_BROW_IN].y-lm[L_BROW_OUT].y)+(lm[R_BROW_IN].y-lm[R_BROW_OUT].y))/2;
   const browLift = lm[159].y - lm[L_BROW_IN].y;
 
-  if(mOpen>.45 && browLift>.035) return {icon:'😲',lbl:S.lang==='tr'?'ŞAŞKIN':'SURPRISED',color:'#ffcc00',conf:Math.min(mOpen*120,100)};
-  if(browSlope>.013) return {icon:'😠',lbl:S.lang==='tr'?'KIZGIN':'ANGRY',color:'#ff4455',conf:Math.min(browSlope*4000,100)};
-  if(cornerElev<-.008 && mOpen<.28) return {icon:'😊',lbl:S.lang==='tr'?'MUTLU':'HAPPY',color:'#00e87a',conf:Math.min(Math.abs(cornerElev)*3000,100)};
-  if(cornerElev>.012 && browLift<.015) return {icon:'😢',lbl:S.lang==='tr'?'ÜZGÜN':'SAD',color:'#4488ff',conf:Math.min(cornerElev*3000,100)};
-  return {icon:'😐',lbl:S.lang==='tr'?'NÖTR':'NEUTRAL',color:'#556677',conf:55};
+  const emojisMap = {
+    tr: {surprised:'😲', angry:'😠', happy:'😊', sad:'😢', neutral:'😐'},
+    en: {surprised:'😲', angry:'😠', happy:'😊', sad:'😢', neutral:'😐'}
+  };
+  const labelsMap = {
+    tr: {surprised:'ŞAŞKIN', angry:'KIZGIN', happy:'MUTLU', sad:'ÜZGÜN', neutral:'NÖTR'},
+    en: {surprised:'SURPRISED', angry:'ANGRY', happy:'HAPPY', sad:'SAD', neutral:'NEUTRAL'}
+  };
+
+  if(mOpen>.45 && browLift>.035) return {icon:emojisMap[S.lang].surprised,lbl:labelsMap[S.lang].surprised,color:'#ffcc00',conf:Math.min(mOpen*120,100)};
+  if(browSlope>.013) return {icon:emojisMap[S.lang].angry,lbl:labelsMap[S.lang].angry,color:'#ff4455',conf:Math.min(browSlope*4000,100)};
+  if(cornerElev<-.008 && mOpen<.28) return {icon:emojisMap[S.lang].happy,lbl:labelsMap[S.lang].happy,color:'#00e87a',conf:Math.min(Math.abs(cornerElev)*3000,100)};
+  if(cornerElev>.012 && browLift<.015) return {icon:emojisMap[S.lang].sad,lbl:labelsMap[S.lang].sad,color:'#4488ff',conf:Math.min(cornerElev*3000,100)};
+  return {icon:emojisMap[S.lang].neutral,lbl:labelsMap[S.lang].neutral,color:'#556677',conf:55};
 }
 
 function onResults(r){
@@ -678,14 +815,14 @@ function onResults(r){
   if(!r.multiFaceLandmarks||!r.multiFaceLandmarks.length){
     S.isTracking=false;
     document.getElementById('trk-dot').classList.remove('on');
-    document.getElementById('trk-lbl').textContent='Yüz Yok';
+    document.getElementById('trk-lbl').textContent = T('trackNo');
     noface.classList.add('show');
     return;
   }
   noface.classList.remove('show');
   S.isTracking=true;
   document.getElementById('trk-dot').classList.add('on');
-  document.getElementById('trk-lbl').textContent='Takip ✓';
+  document.getElementById('trk-lbl').textContent = T('trackOn');
 
   const lm = r.multiFaceLandmarks[0];
 
@@ -826,7 +963,7 @@ function showCalOverlay(){
 
 function skipCalibration(){
   document.getElementById('cal-overlay').classList.remove('show');
-  toast(S.lang==='tr'?'Varsayılan kalibrasyon kullanılıyor':'Using default calibration');
+  toast(T('usingDefaults'));
 }
 
 function beginCalibration(){
@@ -844,7 +981,7 @@ function showCalDot(){
   dot.style.display='block';
   dot.style.left=(pt.x*window.innerWidth)+'px';
   dot.style.top=(pt.y*window.innerHeight)+'px';
-  toast(`${S.calStep+1}/${CAL_PTS.length}: Noktaya bakın → göz kırpın`);
+  toast(`${S.calStep+1}/${CAL_PTS.length}: ${T('calibrating')}`);
 }
 
 function recordCalPt(){
@@ -872,7 +1009,7 @@ function finishCal(){
       document.getElementById('sv-gain').textContent=S.gazeGain.toFixed(1);
     }
   }
-  toast('✅ Kalibrasyon tamam! / Calibration done!');
+  toast('✅ '+T('calibrationDone'));
 }
 
 // ════════════════════════════════════════════
@@ -889,11 +1026,11 @@ function buildKeyboard(){
       btn.className='key';
       if(k==='___SP___'){
         btn.className+=' xwide';
-        btn.textContent=S.lang==='tr'?'BOŞLUK':'SPACE';
+        btn.textContent= S.lang==='tr'?'BOŞLUK':'SPACE';
         btn.dataset.k=' ';
       } else if(k==='⌫'){
         btn.className+=' wide';
-        btn.textContent='⌫ SİL';
+        btn.textContent='⌫ ' + (S.lang==='tr'?'SİL':'DEL');
         btn.dataset.k='bs';
       } else {
         btn.textContent=k;
@@ -1000,7 +1137,10 @@ function setLang(l){
   S.lang=l;
   document.getElementById('btn-tr').classList.toggle('on',l==='tr');
   document.getElementById('btn-en').classList.toggle('on',l==='en');
-  buildKeyboard(); buildCatBar(); renderCards();
+  updateAllText();
+  buildKeyboard();
+  buildCatBar();
+  renderCards();
   toast(l==='tr'?'🇹🇷 Türkçe seçildi':'🇬🇧 English selected');
 }
 
