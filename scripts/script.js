@@ -1,82 +1,4 @@
 // ════════════════════════════════════════════
-// LANGUAGE TRANSLATIONS
-// ════════════════════════════════════════════
-const STRINGS = {
-  tr: {
-    title: 'GÖZLERİMİN<br>SESİ',
-    subtitle: 'Göz Hareketleriyle İletişim · Eye Movement Communication',
-    startBtn: 'BAŞLAT / START',
-    calTitle: 'KALİBRASYON',
-    calInfo: 'Ekranda beliren noktaya bakın ve <strong style="color:var(--primary)">bir kez göz kırpın</strong>.<br>Look at each point and blink once to select.',
-    calStart: 'Kalibrasyonu Başlat',
-    calSkip: 'Atla (Varsayılan)',
-    headerTitle: 'GÖZLERİMİN SESİ',
-    camNo: 'Kamera Yok',
-    camOn: 'Kamera Açık',
-    trackNo: 'Takip Yok',
-    trackOn: 'Takip ✓',
-    calibration: 'Kalibrasyon',
-    noFace: 'Yüz bulunamadı',
-    blinkLabel: 'Kırpma',
-    wordLabel: 'Kelime',
-    phraseLabel: 'Cümle',
-    gazeTitle: 'Göz Takibi',
-    blinkLabel: 'Göz Kırpma Eşiği',
-    gainLabel: 'Gaze Hassasiyeti',
-    smoothLabel: 'Yumuşatma',
-    voiceTitle: 'Ses',
-    rateLabel: 'TTS Hızı',
-    pitchLabel: 'TTS Tonu',
-    sidebarCal: 'KALİBRASYON / CALIBRATE',
-    speak: 'Seslendir',
-    delete: 'Sil',
-    clear: 'Temizle',
-    space: 'Boşluk',
-    keyboard: 'Klavye',
-    cards: 'Kartlar',
-    calibrating: 'Noktaya bakın → göz kırpın',
-    calibrationDone: 'Kalibrasyon tamam!',
-    usingDefaults: 'Varsayılan kalibrasyon kullanılıyor',
-  },
-  en: {
-    title: 'GÖZLERİMİN<br>SESİ',
-    subtitle: 'Eye Movement Communication · Göz Hareketleriyle İletişim',
-    startBtn: 'START / BAŞLAT',
-    calTitle: 'CALIBRATION',
-    calInfo: 'Look at each point and <strong style="color:var(--primary)">blink once to select</strong>.<br>Ekranda beliren noktaya bakın ve bir kez göz kırpın.',
-    calStart: 'Start Calibration',
-    calSkip: 'Skip (Default)',
-    headerTitle: 'GÖZLERİMİN SESİ',
-    camNo: 'No Camera',
-    camOn: 'Camera On',
-    trackNo: 'No Tracking',
-    trackOn: 'Tracking ✓',
-    calibration: 'Calibration',
-    noFace: 'No face detected',
-    blinkLabel: 'Blinks',
-    wordLabel: 'Words',
-    phraseLabel: 'Phrases',
-    gazeTitle: 'Eye Tracking',
-    blinkLabel: 'Blink Threshold',
-    gainLabel: 'Gaze Sensitivity',
-    smoothLabel: 'Smoothing',
-    voiceTitle: 'Voice',
-    rateLabel: 'TTS Rate',
-    pitchLabel: 'TTS Pitch',
-    sidebarCal: 'CALIBRATE / KALİBRASYON',
-    speak: 'Speak',
-    delete: 'Delete',
-    clear: 'Clear',
-    space: 'Space',
-    keyboard: 'Keyboard',
-    cards: 'Cards',
-    calibrating: 'Look at point → blink once',
-    calibrationDone: 'Calibration done!',
-    usingDefaults: 'Using default calibration',
-  }
-};
-
-// ════════════════════════════════════════════
 // STATE
 // ════════════════════════════════════════════
 const S = {
@@ -138,22 +60,30 @@ const PHRASES = {
       {i:'❌',t:'Hayır'},{i:'🆘',t:'Yardım edin lütfen'},{i:'💊',t:'İlaç lazım'},
       {i:'💧',t:'Su istiyorum'},{i:'🍽️',t:'Acıktım'},{i:'😣',t:'Ağrım var'},
       {i:'😴',t:'Uyumak istiyorum'},{i:'🚽',t:'Tuvalete gitmem lazım'},{i:'🥶',t:'Üşüyorum'},
+      {i:'😊',t:'İyiyim'},{i:'❤️',t:'Sizi seviyorum'},{i:'👏',t:'Çok güzel'},
+      {i:'🔥',t:'Harika'},{i:'💪',t:'Başaracağım'},{i:'🎉',t:'Harika oldu'},
     ],
     ihtiyac:[
       {i:'📞',t:'Aile üyemi arayın'},{i:'👨‍⚕️',t:'Doktor çağırın'},
       {i:'🏥',t:'Hastaneye götürün'},{i:'📱',t:'Telefonum nerede?'},
       {i:'👓',t:'Gözlüğüm lazım'},{i:'🔋',t:'Şarj lazım'},
       {i:'🛏️',t:'Yatmak istiyorum'},{i:'🪑',t:'Oturmak istiyorum'},
+      {i:'🚗',t:'Arabayla çıkalım'},{i:'🌡️',t:'Sıcaklık ölçün'},
+      {i:'🔊',t:'Sesi aç'},{i:'💡',t:'Işığı aç'},
     ],
     duygu:[
       {i:'😊',t:'Mutluyum'},{i:'😢',t:'Üzgünüm'},{i:'😰',t:'Korkuyorum'},
       {i:'😤',t:'Sinirleniyorum'},{i:'😌',t:'İyiyim'},{i:'🤔',t:'Bilmiyorum'},
-      {i:'❤️',t:'Sizi seviyorum'},{i:'😲',t:'Şaşırdım'},
+      {i:'❤️',t:'Sizi seviyorum'},{i:'😲',t:'Şaşırdım'},{i:'😴',t:'Uyku geliyor'},
+      {i:'😠',t:'Kızgınım'},{i:'😇',t:'İyi yapıldı'},{i:'🤗',t:'Sarılmak istiyorum'},
     ],
     gunluk:[
       {i:'🌅',t:'Günaydın'},{i:'🌙',t:'İyi geceler'},{i:'🤝',t:'Görüşürüz'},
       {i:'📺',t:'TV izlemek istiyorum'},{i:'🎵',t:'Müzik dinlemek istiyorum'},
       {i:'🌞',t:'Dışarı çıkmak istiyorum'},{i:'☕',t:'Kahve istiyorum'},
+      {i:'🚶',t:'Yürüyüş yapmak istiyorum'},{i:'🎮',t:'Oyun oynamak istiyorum'},
+      {i:'📖',t:'Kitap oku bana'},{i:'🎬',t:'Film izleyelim'},
+      {i:'🍕',t:'Pizza ister misin?'},{i:'🛁',t:'Banyo yapmak istiyorum'},
     ]
   },
   en:{
@@ -162,22 +92,30 @@ const PHRASES = {
       {i:'❌',t:'No'},{i:'🆘',t:'Please help me'},{i:'💊',t:'I need medication'},
       {i:'💧',t:'I want water'},{i:'🍽️',t:"I'm hungry"},{i:'😣',t:"I'm in pain"},
       {i:'😴',t:'I want to sleep'},{i:'🚽',t:'I need the bathroom'},{i:'🥶',t:"I'm cold"},
+      {i:'😊',t:"I'm fine"},{i:'❤️',t:'I love you'},{i:'👏',t:'That is great'},
+      {i:'🔥',t:'Awesome'},{i:'💪',t:'I can do it'},{i:'🎉',t:'That was wonderful'},
     ],
     ihtiyac:[
       {i:'📞',t:'Call my family'},{i:'👨‍⚕️',t:'Call the doctor'},
       {i:'🏥',t:'Take me to hospital'},{i:'📱',t:'Where is my phone?'},
       {i:'👓',t:'I need my glasses'},{i:'🔋',t:'Need to charge'},
       {i:'🛏️',t:'I want to lie down'},{i:'🪑',t:'I want to sit up'},
+      {i:'🚗',t:'Let us go for a drive'},{i:'🌡️',t:'Check my temperature'},
+      {i:'🔊',t:'Turn up the volume'},{i:'💡',t:'Turn on the light'},
     ],
     duygu:[
       {i:'😊',t:"I'm happy"},{i:'😢',t:"I'm sad"},{i:'😰',t:"I'm scared"},
       {i:'😤',t:"I'm angry"},{i:'😌',t:"I'm fine"},{i:'🤔',t:"I don't know"},
-      {i:'❤️',t:'I love you'},{i:'😲',t:"I'm surprised"},
+      {i:'❤️',t:'I love you'},{i:'😲',t:"I'm surprised"},{i:'😴',t:'Getting tired'},
+      {i:'😠',t:"I'm upset"},{i:'😇',t:'That is kind'},{i:'🤗',t:'I want a hug'},
     ],
     gunluk:[
       {i:'🌅',t:'Good morning'},{i:'🌙',t:'Good night'},{i:'🤝',t:'See you later'},
       {i:'📺',t:'I want to watch TV'},{i:'🎵',t:'I want to listen to music'},
       {i:'🌞',t:'I want to go outside'},{i:'☕',t:'I want coffee'},
+      {i:'🚶',t:'I want to take a walk'},{i:'🎮',t:'I want to play a game'},
+      {i:'📖',t:'Read me a book'},{i:'🎬',t:"Let us watch a movie"},
+      {i:'🍕',t:'Do you want pizza?'},{i:'🛁',t:'I want to take a bath'},
     ]
   }
 };
@@ -192,56 +130,6 @@ const R_EYE = [362,385,387,263,373,380];
 const L_IRIS = 468, R_IRIS = 473;
 const M_LEFT=61, M_RIGHT=291, M_TOP=13, M_BTM=14;
 const L_BROW_IN=55, R_BROW_IN=285, L_BROW_OUT=46, R_BROW_OUT=276;
-
-// ════════════════════════════════════════════
-// TRANSLATION FUNCTION
-// ════════════════════════════════════════════
-function T(key) {
-  return STRINGS[S.lang]?.[key] || STRINGS['tr'][key] || key;
-}
-
-function updateAllText() {
-  // Startup Screen
-  document.getElementById('title-main').innerHTML = T('title');
-  document.getElementById('subtitle-main').innerHTML = T('subtitle');
-  document.getElementById('btn-start').textContent = T('startBtn');
-
-  // Calibration Modal
-  document.getElementById('cal-title-text').textContent = T('calTitle');
-  document.getElementById('cal-info-text').innerHTML = T('calInfo');
-  document.getElementById('btn-cal-start').textContent = T('calStart');
-  document.getElementById('btn-cal-skip').textContent = T('calSkip');
-
-  // Header
-  document.getElementById('header-title').textContent = T('headerTitle');
-  document.getElementById('cam-lbl').textContent = S.isCamOn ? T('camOn') : T('camNo');
-  document.getElementById('trk-lbl').textContent = S.isTracking ? T('trackOn') : T('trackNo');
-  document.getElementById('header-cal').textContent = T('calibration');
-
-  // Sidebar
-  document.getElementById('no-face-text').textContent = T('noFace');
-  document.getElementById('stat-blinks-label').textContent = T('blinkLabel');
-  document.getElementById('stat-words-label').textContent = T('wordLabel');
-  document.getElementById('stat-phrases-label').textContent = T('phraseLabel');
-  document.getElementById('sett-gaze-title').textContent = T('gazeTitle');
-  document.getElementById('sett-blink-label').innerHTML = `<span>${T('blinkLabel')}</span> <span class="sett-v" id="sv-blink">${S.blinkThresh.toFixed(2)}</span>`;
-  document.getElementById('sett-gain-label').innerHTML = `<span>${T('gainLabel')}</span> <span class="sett-v" id="sv-gain">${S.gazeGain.toFixed(1)}</span>`;
-  document.getElementById('sett-smooth-label').innerHTML = `<span>${T('smoothLabel')}</span> <span class="sett-v" id="sv-smooth">${S.smoothFactor.toFixed(2)}</span>`;
-  document.getElementById('sett-voice-title').textContent = T('voiceTitle');
-  document.getElementById('sett-rate-label').innerHTML = `<span>${T('rateLabel')}</span> <span class="sett-v" id="sv-rate">${S.ttsRate.toFixed(1)}</span>`;
-  document.getElementById('sett-pitch-label').innerHTML = `<span>${T('pitchLabel')}</span> <span class="sett-v" id="sv-pitch">${S.ttsPitch.toFixed(1)}</span>`;
-  document.getElementById('sidebar-cal-text').textContent = T('sidebarCal');
-
-  // Action Buttons
-  document.getElementById('btn-speak-text').textContent = T('speak');
-  document.getElementById('btn-bs-text').textContent = T('delete');
-  document.getElementById('btn-clr-text').textContent = T('clear');
-  document.getElementById('btn-sp-text').textContent = T('space');
-
-  // Tabs
-  document.getElementById('tab-kb-text').textContent = T('keyboard');
-  document.getElementById('tab-cd-text').textContent = T('cards');
-}
 
 // ════════════════════════════════════════════
 // BOOT / MEDIAPIPE
@@ -292,9 +180,9 @@ async function initCam(){
     mpCam.start();
     S.isCamOn = true;
     document.getElementById('cam-dot').classList.add('on');
-    document.getElementById('cam-lbl').textContent = T('camOn');
+    document.getElementById('cam-lbl').textContent = 'Kamera Açık';
   } catch(e){
-    toast('⚠️ ' + (S.lang==='tr'?'Kamera izni gerekli!':'Camera permission required!'));
+    toast('⚠️ Kamera izni gerekli!');
   }
 }
 
@@ -318,20 +206,11 @@ function emotion(lm){
   const browSlope = ((lm[L_BROW_IN].y-lm[L_BROW_OUT].y)+(lm[R_BROW_IN].y-lm[R_BROW_OUT].y))/2;
   const browLift = lm[159].y - lm[L_BROW_IN].y;
 
-  const emojisMap = {
-    tr: {surprised:'😲', angry:'😠', happy:'😊', sad:'😢', neutral:'😐'},
-    en: {surprised:'😲', angry:'😠', happy:'😊', sad:'😢', neutral:'😐'}
-  };
-  const labelsMap = {
-    tr: {surprised:'ŞAŞKIN', angry:'KIZGIN', happy:'MUTLU', sad:'ÜZGÜN', neutral:'NÖTR'},
-    en: {surprised:'SURPRISED', angry:'ANGRY', happy:'HAPPY', sad:'SAD', neutral:'NEUTRAL'}
-  };
-
-  if(mOpen>.45 && browLift>.035) return {icon:emojisMap[S.lang].surprised,lbl:labelsMap[S.lang].surprised,color:'#ffcc00',conf:Math.min(mOpen*120,100)};
-  if(browSlope>.013) return {icon:emojisMap[S.lang].angry,lbl:labelsMap[S.lang].angry,color:'#ff4455',conf:Math.min(browSlope*4000,100)};
-  if(cornerElev<-.008 && mOpen<.28) return {icon:emojisMap[S.lang].happy,lbl:labelsMap[S.lang].happy,color:'#00e87a',conf:Math.min(Math.abs(cornerElev)*3000,100)};
-  if(cornerElev>.012 && browLift<.015) return {icon:emojisMap[S.lang].sad,lbl:labelsMap[S.lang].sad,color:'#4488ff',conf:Math.min(cornerElev*3000,100)};
-  return {icon:emojisMap[S.lang].neutral,lbl:labelsMap[S.lang].neutral,color:'#556677',conf:55};
+  if(mOpen>.45 && browLift>.035) return {icon:'😲',lbl:S.lang==='tr'?'ŞAŞKIN':'SURPRISED',color:'#ffcc00',conf:Math.min(mOpen*120,100)};
+  if(browSlope>.013) return {icon:'😠',lbl:S.lang==='tr'?'KIZGIN':'ANGRY',color:'#ff4455',conf:Math.min(browSlope*4000,100)};
+  if(cornerElev<-.008 && mOpen<.28) return {icon:'😊',lbl:S.lang==='tr'?'MUTLU':'HAPPY',color:'#00e87a',conf:Math.min(Math.abs(cornerElev)*3000,100)};
+  if(cornerElev>.012 && browLift<.015) return {icon:'😢',lbl:S.lang==='tr'?'ÜZGÜN':'SAD',color:'#4488ff',conf:Math.min(cornerElev*3000,100)};
+  return {icon:'😐',lbl:S.lang==='tr'?'NÖTR':'NEUTRAL',color:'#556677',conf:55};
 }
 
 function onResults(r){
@@ -341,14 +220,14 @@ function onResults(r){
   if(!r.multiFaceLandmarks||!r.multiFaceLandmarks.length){
     S.isTracking=false;
     document.getElementById('trk-dot').classList.remove('on');
-    document.getElementById('trk-lbl').textContent = T('trackNo');
+    document.getElementById('trk-lbl').textContent='Yüz Yok';
     noface.classList.add('show');
     return;
   }
   noface.classList.remove('show');
   S.isTracking=true;
   document.getElementById('trk-dot').classList.add('on');
-  document.getElementById('trk-lbl').textContent = T('trackOn');
+  document.getElementById('trk-lbl').textContent='Takip ✓';
 
   const lm = r.multiFaceLandmarks[0];
 
@@ -489,7 +368,7 @@ function showCalOverlay(){
 
 function skipCalibration(){
   document.getElementById('cal-overlay').classList.remove('show');
-  toast(T('usingDefaults'));
+  toast(S.lang==='tr'?'Varsayılan kalibrasyon kullanılıyor':'Using default calibration');
 }
 
 function beginCalibration(){
@@ -507,7 +386,7 @@ function showCalDot(){
   dot.style.display='block';
   dot.style.left=(pt.x*window.innerWidth)+'px';
   dot.style.top=(pt.y*window.innerHeight)+'px';
-  toast(`${S.calStep+1}/${CAL_PTS.length}: ${T('calibrating')}`);
+  toast(`${S.calStep+1}/${CAL_PTS.length}: Noktaya bakın → göz kırpın`);
 }
 
 function recordCalPt(){
@@ -535,7 +414,7 @@ function finishCal(){
       document.getElementById('sv-gain').textContent=S.gazeGain.toFixed(1);
     }
   }
-  toast('✅ '+T('calibrationDone'));
+  toast('✅ Kalibrasyon tamam! / Calibration done!');
 }
 
 // ════════════════════════════════════════════
@@ -552,11 +431,11 @@ function buildKeyboard(){
       btn.className='key';
       if(k==='___SP___'){
         btn.className+=' xwide';
-        btn.textContent= S.lang==='tr'?'BOŞLUK':'SPACE';
+        btn.textContent=S.lang==='tr'?'BOŞLUK':'SPACE';
         btn.dataset.k=' ';
       } else if(k==='⌫'){
         btn.className+=' wide';
-        btn.textContent='⌫ ' + (S.lang==='tr'?'SİL':'DEL');
+        btn.textContent='⌫ SİL';
         btn.dataset.k='bs';
       } else {
         btn.textContent=k;
@@ -663,11 +542,29 @@ function setLang(l){
   S.lang=l;
   document.getElementById('btn-tr').classList.toggle('on',l==='tr');
   document.getElementById('btn-en').classList.toggle('on',l==='en');
-  updateAllText();
-  buildKeyboard();
-  buildCatBar();
-  renderCards();
-  toast(l==='tr'?'🇹🇷 TR':'🇬🇧 EN');
+  updateSettingsLabels();
+  buildKeyboard(); buildCatBar(); renderCards();
+  toast(l==='tr'?'🇹🇷 Türkçe seçildi':'🇬🇧 English selected');
+}
+
+function updateSettingsLabels(){
+  if(S.lang==='tr'){
+    document.getElementById('sep-eye').textContent='👁️ Göz Takibi';
+    document.getElementById('l-blink').textContent='Göz Kırpma Eşiği';
+    document.getElementById('l-gain').textContent='Gaze Hassasiyeti';
+    document.getElementById('l-smooth').textContent='Yumuşatma';
+    document.getElementById('sep-sound').textContent='🔊 Ses';
+    document.getElementById('l-rate').textContent='TTS Hızı';
+    document.getElementById('l-pitch').textContent='TTS Tonu';
+  } else {
+    document.getElementById('sep-eye').textContent='👁️ Eye Tracking';
+    document.getElementById('l-blink').textContent='Eye Blink Threshold';
+    document.getElementById('l-gain').textContent='Gaze Sensitivity';
+    document.getElementById('l-smooth').textContent='Smoothing';
+    document.getElementById('sep-sound').textContent='🔊 Sound';
+    document.getElementById('l-rate').textContent='TTS Speed';
+    document.getElementById('l-pitch').textContent='TTS Pitch';
+  }
 }
 
 // ════════════════════════════════════════════

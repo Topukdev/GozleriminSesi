@@ -1,11 +1,9 @@
 <!--
     Copyright (C) 2026 TugraYigitY
-    Gözlerimin Sesi 1.2
+    Gözlerimin Sesi 2.0
     Bu yazılım GNU Genel Kamu Lisansı (GPL) v3.0 ile lisanslanmıştır.
-    Ayrıntılar için projenin ana dizinindeki "license.txt" ve "Readme.txt" dosyalarına bakın.
+    Ayrıntılar için projenin ana dizinindeki "LİCENCE.txt" ve "README.txt" dosyalarına bakın.
  -->
-
-
 <!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -13,29 +11,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gözlerimin Sesi</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./css/style.css">
-<meta name="viewport" content="width=device-width, initial-scale=1.9">
+<link rel="stylesheet", href="./style/style.css"></style>
 </head>
 <body>
 
 <!-- STARTUP -->
 <div id="startup">
   <div class="s-eye">👁️</div>
-  <div class="s-title"><span id="title-main">GÖZLERİMİN<br>SESİ</span></div>
-  <div class="s-sub" id="subtitle-main">Göz Hareketleriyle İletişim · Eye Movement Communication</div>
+  <div class="s-title">GÖZLERİMİN<br>SESİ</div>
+  <div class="s-sub">Göz Hareketleriyle İletişim · Eye Movement Communication</div>
   <div class="s-bar"><div class="s-fill" id="s-fill"></div></div>
   <div id="s-status">MediaPipe yükleniyor…</div>
-  <button id="s-startbtn" onclick="startApp()"><span id="btn-start">BAŞLAT / START</span> ›</button>
+  <button id="s-startbtn" onclick="startApp()">BAŞLAT / START ›</button>
 </div>
 
 <!-- CALIBRATION OVERLAY -->
 <div id="cal-overlay">
-  <div class="cal-title">🎯 <span id="cal-title-text">KALİBRASYON</span></div>
-  <div class="cal-info" id="cal-info-text">Ekranda beliren noktaya bakın ve <strong style="color:var(--primary)">bir kez göz kırpın</strong>.<br>Look at each point and blink once to select.</div>
+  <div class="cal-title">🎯 KALİBRASYON</div>
+  <div class="cal-info">Ekranda beliren noktaya bakın ve <strong style="color:var(--primary)">bir kez göz kırpın</strong>.<br>Look at each point and blink once to select.</div>
   <div class="cal-progress" id="cal-prog">0 / 5</div>
   <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;">
-    <button class="cal-btn primary" onclick="beginCalibration()"><span id="btn-cal-start">Kalibrasyonu Başlat</span></button>
-    <button class="cal-btn ghost" onclick="skipCalibration()"><span id="btn-cal-skip">Atla (Varsayılan)</span></button>
+    <button class="cal-btn primary" onclick="beginCalibration()">Kalibrasyonu Başlat</button>
+    <button class="cal-btn ghost" onclick="skipCalibration()">Atla (Varsayılan)</button>
   </div>
 </div>
 <div id="cal-dot"></div>
@@ -52,15 +49,15 @@
   <!-- HEADER -->
   <header id="header">
     <div>
-      <span class="h-brand">👁️ <span id="header-title">GÖZLERİMİN SESİ</span></span>
-      <span class="h-ver">v1.2</span>
+      <span class="h-brand">👁️ GÖZLERİMİN SESİ</span>
+      <span class="h-ver">v1.0</span>
     </div>
     <div class="h-gap"></div>
     <div class="h-badge"><div class="h-dot" id="cam-dot"></div><span id="cam-lbl">Kamera Yok</span></div>
     <div class="h-badge"><div class="h-dot" id="trk-dot"></div><span id="trk-lbl">Takip Yok</span></div>
     <button class="h-btn on" id="btn-tr" onclick="setLang('tr')">TR 🇹🇷</button>
     <button class="h-btn" id="btn-en" onclick="setLang('en')">EN 🇬🇧</button>
-    <button class="h-btn calb" id="btn-cal-header" onclick="showCalOverlay()">🎯 <span id="header-cal">Kalibrasyon</span></button>
+    <button class="h-btn calb" onclick="showCalOverlay()">🎯 Kalibrasyon</button>
   </header>
 
   <!-- SIDEBAR -->
@@ -69,7 +66,7 @@
       <video id="video" autoplay playsinline muted></video>
       <canvas id="cam-canvas"></canvas>
       <div id="blink-dot"></div>
-      <div id="no-face"><span>🚫</span><span id="no-face-text">Yüz bulunamadı</span></div>
+      <div id="no-face"><span>🚫</span><span>Yüz bulunamadı</span></div>
       <div id="cam-overlay">
         <span id="emo-icon">😐</span>
         <span id="emo-label" style="color:var(--text-dim)">NÖTR</span>
@@ -78,36 +75,36 @@
     </div>
 
     <div id="stat-bar">
-      <div class="stat"><div class="stat-v" id="s-blinks">0</div><div class="stat-l" id="stat-blinks-label">Kırpma</div></div>
-      <div class="stat"><div class="stat-v" id="s-words">0</div><div class="stat-l" id="stat-words-label">Kelime</div></div>
-      <div class="stat"><div class="stat-v" id="s-phrases">0</div><div class="stat-l" id="stat-phrases-label">Cümle</div></div>
+      <div class="stat"><div class="stat-v" id="s-blinks">0</div><div class="stat-l">Kırpma</div></div>
+      <div class="stat"><div class="stat-v" id="s-words">0</div><div class="stat-l">Kelime</div></div>
+      <div class="stat"><div class="stat-v" id="s-phrases">0</div><div class="stat-l">Cümle</div></div>
     </div>
 
     <div id="sett">
-      <div class="sett-sep">👁️ <span id="sett-gaze-title">Göz Takibi</span></div>
+      <div class="sett-sep" id="sep-eye">👁️ Göz Takibi</div>
       <div class="sett-g">
-        <label><span id="sett-blink-label">Göz Kırpma Eşiği</span> <span class="sett-v" id="sv-blink">0.22</span></label>
+        <label><span id="l-blink">Göz Kırpma Eşiği</span> <span class="sett-v" id="sv-blink">0.22</span></label>
         <div class="sett-row"><input type="range" id="sl-blink" min="0.10" max="0.35" step="0.01" value="0.22" oninput="updSett()"></div>
       </div>
       <div class="sett-g">
-        <label><span id="sett-gain-label">Gaze Hassasiyeti</span> <span class="sett-v" id="sv-gain">3.5</span></label>
+        <label><span id="l-gain">Gaze Hassasiyeti</span> <span class="sett-v" id="sv-gain">3.5</span></label>
         <div class="sett-row"><input type="range" id="sl-gain" min="1.5" max="7.0" step="0.1" value="3.5" oninput="updSett()"></div>
       </div>
       <div class="sett-g">
-        <label><span id="sett-smooth-label">Yumuşatma</span> <span class="sett-v" id="sv-smooth">0.12</span></label>
+        <label><span id="l-smooth">Yumuşatma</span> <span class="sett-v" id="sv-smooth">0.12</span></label>
         <div class="sett-row"><input type="range" id="sl-smooth" min="0.04" max="0.35" step="0.01" value="0.12" oninput="updSett()"></div>
       </div>
-      <div class="sett-sep">🔊 <span id="sett-voice-title">Ses</span></div>
+      <div class="sett-sep" id="sep-sound">🔊 Ses</div>
       <div class="sett-g">
-        <label><span id="sett-rate-label">TTS Hızı</span> <span class="sett-v" id="sv-rate">1.0</span></label>
+        <label><span id="l-rate">TTS Hızı</span> <span class="sett-v" id="sv-rate">1.0</span></label>
         <div class="sett-row"><input type="range" id="sl-rate" min="0.5" max="2.0" step="0.1" value="1.0" oninput="updSett()"></div>
       </div>
       <div class="sett-g">
-        <label><span id="sett-pitch-label">TTS Tonu</span> <span class="sett-v" id="sv-pitch">1.0</span></label>
+        <label><span id="l-pitch">TTS Tonu</span> <span class="sett-v" id="sv-pitch">1.0</span></label>
         <div class="sett-row"><input type="range" id="sl-pitch" min="0.5" max="2.0" step="0.1" value="1.0" oninput="updSett()"></div>
       </div>
     </div>
-    <button id="cal-sidebar-btn" onclick="showCalOverlay()">🎯 <span id="sidebar-cal-text">KALİBRASYON / CALIBRATE</span></button>
+    <button id="cal-sidebar-btn" onclick="showCalOverlay()">🎯 KALİBRASYON / CALIBRATE</button>
   </aside>
 
   <!-- MAIN -->
@@ -115,16 +112,16 @@
     <div id="output">
       <div id="text-disp"><span id="typed"></span><span class="cur"></span></div>
       <div id="out-acts">
-        <button class="act-btn speak-btn" onclick="speakText()" id="btn-speak">🔊 <span id="btn-speak-text">Seslendir</span></button>
-        <button class="act-btn" id="btn-bs" onclick="doBackspace()">⌫ <span id="btn-bs-text">Sil</span></button>
-        <button class="act-btn" id="btn-clr" onclick="doClear()">🗑 <span id="btn-clr-text">Temizle</span></button>
-        <button class="act-btn" id="btn-sp" onclick="doSpace()">⎵ <span id="btn-sp-text">Boşluk</span></button>
+        <button class="act-btn speak-btn" onclick="speakText()">🔊 Seslendir</button>
+        <button class="act-btn" id="btn-bs" onclick="doBackspace()">⌫ Sil</button>
+        <button class="act-btn" id="btn-clr" onclick="doClear()">🗑 Temizle</button>
+        <button class="act-btn" id="btn-sp" onclick="doSpace()">⎵ Boşluk</button>
       </div>
     </div>
 
     <div id="tabs">
-      <button class="tab-btn on" id="tab-kb" onclick="switchTab('kb')">⌨️ <span id="tab-kb-text">Klavye</span></button>
-      <button class="tab-btn" id="tab-cd" onclick="switchTab('cd')">🗂️ <span id="tab-cd-text">Kartlar</span></button>
+      <button class="tab-btn on" id="tab-kb" onclick="switchTab('kb')">⌨️ Klavye</button>
+      <button class="tab-btn" id="tab-cd" onclick="switchTab('cd')">🗂️ Kartlar</button>
     </div>
 
     <div id="tab-content">
@@ -145,7 +142,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh@0.4.1633559619/face_mesh.js" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils@0.3.1640029074/camera_utils.js" crossorigin="anonymous"></script>
-
-<script src="./scripts/main.js"></script>
+<script src="./scripts/script.js"></script>
 </body>
 </html>
